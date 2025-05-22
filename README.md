@@ -1,6 +1,6 @@
 Aktuelle To-Do Liste:
 
-Pflicht
+Pflicht (erforderlich)
 * apk-Datei
 * besser kommentieren
 * das hier zu einem echtem readme umschreiben
