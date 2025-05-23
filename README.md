@@ -1,15 +1,7 @@
-Aktuelle To-Do Liste:
+# Einkaufsliste App
 
-Pflicht (erforderlich)
-* apk-Datei
-* besser kommentieren
-* das hier zu einem echtem readme umschreiben
-
-Nur so
-* verschönern
-* checkliste
-* nach abhaken ausgrauen
-* einkäufe durch wegswipen löschen
-* button zum alles löschen (clear)
-* einträge nachträglich bearbeiten
-* iwas in den einstellungen (dark/lightmode? oder so)
+## Features
+* Einkäufe in Liste eintragen
+* Einkäufe löschen
+* schöner Grünton
+* das wars!
