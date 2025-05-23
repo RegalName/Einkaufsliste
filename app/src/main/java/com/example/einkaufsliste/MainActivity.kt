@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var lvListe: ListView
-    private lateinit var fab: FloatingActionButton
-    private lateinit var einkaeufe: ArrayList<String>
+    private lateinit var fab: FloatingActionButton //fügt Einkäufe hinzu
+    private lateinit var einkaeufe: ArrayList<String> //durch User erstellte Einkäufe
     private lateinit var itemAdapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,13 +33,28 @@ class MainActivity : AppCompatActivity() {
         itemAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, einkaeufe)
         lvListe.adapter = itemAdapter
 
+        // Einträge löschen
         lvListe.setOnItemLongClickListener({arg0, arg1, pos, id ->
-            einkaeufe.removeAt(pos)
-            itemAdapter.notifyDataSetChanged()
-            Toast.makeText(applicationContext, "Einkauf gelöscht", Toast.LENGTH_SHORT).show()
+            //builder für Löschbestätigung
+            var builder = AlertDialog.Builder(this)
+            builder.setTitle("Eintrag löschen?")
+            builder.setMessage("Dann ist er weg!")
+
+            builder.setPositiveButton("OK") { dialog, which ->
+                //löscht Einträge
+                einkaeufe.removeAt(pos)
+                itemAdapter.notifyDataSetChanged()
+                Toast.makeText(applicationContext, "Eintrag gelöscht", Toast.LENGTH_SHORT).show()
+            }
+
+            builder.setNegativeButton("Abbrechen") { dialog, which ->}
+
+            builder.show()
+
             true
         })
 
+        //Einkäufe über den FLoatingActionButton zur Liste hinzufügen
         fab.setOnClickListener {
             var builder = AlertDialog.Builder(this)
             builder.setTitle("Hinzufügen")
